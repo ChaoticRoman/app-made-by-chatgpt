@@ -44,10 +44,6 @@ dist/
 pytestdebug.log
 
 # Other
-*.txt
-*.md
-*.yml
-*.yaml
 *.ini
 *.cfg
 *.html

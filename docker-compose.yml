@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  data:
+    build:
+      context: ./data
+    ports:
+      - "8000:8000"
+
+  app:
+    build:
+      context: ./app
+    ports:
+      - "8050:8050"
+    environment:
+      DATA_API_URL: "http://data:8000/api/data"
