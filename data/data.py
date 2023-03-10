@@ -1,8 +1,9 @@
-from flask import Flask, jsonify
 import random
-import time
+
+from flask import Flask, jsonify
 
 app = Flask(__name__)
+
 
 @app.route('/api/data')
 def data():
@@ -11,6 +12,6 @@ def data():
     data = [{'x': xi, 'y': yi} for xi, yi in zip(x, y)]
     return jsonify(data)
 
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
-
