@@ -1,8 +1,8 @@
 name: CI
 
 on:
-  push:
-    branches: [ main ]
+  pull-request:
+    branches: '*'
 
 jobs:
   test:
