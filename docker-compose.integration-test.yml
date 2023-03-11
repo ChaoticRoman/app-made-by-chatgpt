@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  integration-test:
+    build:
+      context: tests
+    depends_on:
+      - app
+      - data
+    env_file:
+      - envs
