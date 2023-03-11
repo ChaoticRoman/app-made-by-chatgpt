@@ -1,18 +1,28 @@
-# Base image
-FROM python:3.11-slim
+FROM python:3.11-slim AS build
 
-# Set working directory
+RUN useradd -m appuser
+USER appuser
+
 WORKDIR /app
 
-# Install dependencies
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+COPY requirements.txt .
 
-# Copy the app
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt \
+    && rm requirements.txt
+
 COPY app.py .
 
-# Expose port
+
+FROM build as test
+
+RUN pip install pytest
+
+COPY tests tests
+
+
+FROM build as prod
+
 EXPOSE 8050
 
-# Start the app
 CMD ["python", "app.py"]

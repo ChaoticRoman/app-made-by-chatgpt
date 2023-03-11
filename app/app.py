@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import datetime as dt
 
 import dash
 from dash import dcc
@@ -25,6 +26,10 @@ app.layout = html.Div([
 ])
 
 
+def title():
+    return f"Data {dt.utcnow()} UTC"
+
+
 @app.callback(
     dash.dependencies.Output("scatter-plot", "figure"),
     [dash.dependencies.Input("interval-component", "n_intervals")]
@@ -34,7 +39,7 @@ def update_graph(n):
     response = requests.get(url)
     data = json.loads(response.text)
     df = pd.DataFrame(data)
-    fig = px.scatter(df, x="x", y="y", title="Data")
+    fig = px.scatter(df, x="x", y="y", title=title())
     return fig
 
 
