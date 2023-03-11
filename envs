@@ -1,0 +1,2 @@
+DATA_API_URL = http://data:8000/api/data
+APP_URL = http://app:8050
