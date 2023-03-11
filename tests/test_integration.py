@@ -20,8 +20,8 @@ def test_ping_app():
     time.sleep(1)
     
     resp = requests.get(os.environ["APP_URL"])
-    
+
     assert resp.status_code == 200
 
-    assert resp.content == 0
+    assert resp.content.decode().startswith("<!DOCTYPE html>")
     
