@@ -12,6 +12,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Build and test app
+    - name: Build and run unittests
       run: |
         make test
+
+    - name: Build and run integration tests
+      run: |
+        make integration-est
