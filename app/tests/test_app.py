@@ -6,4 +6,4 @@ def test_title():
 
 
 def test_asserting():
-    assert False
+    assert 0
