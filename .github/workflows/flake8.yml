@@ -1,0 +1,20 @@
+name: Flake8 check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  flake8:
+    name: Flake8
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: pip install flake8
+    - name: Run flake8 check
+      run: flake8 .
