@@ -9,12 +9,12 @@ jobs:
     name: Flake8
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
     - name: Set up Python
-      uses: actions/setup-python@v3
+    - uses: actions/checkout@v3
+      uses: actions/setup-python@v4
       with:
         python-version: '3.11'
     - name: Install dependencies
-      run: pip install flake8
+      run: pip install --upgrade pip && pip install flake8
     - name: Run flake8 check
       run: flake8 .
