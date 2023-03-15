@@ -20,7 +20,7 @@ app.layout = html.Div([
     dcc.Graph(id="scatter-plot"),
     dcc.Interval(
         id='interval-component',
-        interval=1000, # in milliseconds
+        interval=1000,  # in milliseconds
         n_intervals=0
     )
 ])
